@@ -185,7 +185,7 @@ public sealed class GameEngine
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine("You have" + timeLeft + "Seconds left!");
+            Console.WriteLine("You have " + timeLeft + " Seconds left!");
         }
 
         
