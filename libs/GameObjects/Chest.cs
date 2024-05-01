@@ -14,13 +14,13 @@ public class Chest : GameObject
         get { return _isOpen; }
         set
         {
-            _isOpen = true;
+            _isOpen = value;
         }
     }
     
     public override void Interact()
     {
-        if (Chest.IsOpen)
+        if (IsOpen)
         {
             Player.Instance.HasKey = true;
             Console.WriteLine("You found a key!");

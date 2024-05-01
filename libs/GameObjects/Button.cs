@@ -11,11 +11,11 @@ public class Button : GameObject
     }
 
 
-    public override void Interact()
+    public void InteractChest(Chest chest)
     {
-        if (!Chest.IsOpen)
+        if (chest.IsOpen)
         {
-            Chest.IsOpen = true;
+            chest.IsOpen = true;
             Console.WriteLine("Click! There was a wooden sound in the distance");
             return;
         }

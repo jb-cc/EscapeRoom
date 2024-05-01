@@ -23,7 +23,7 @@ public class Door: GameObject
 
     public override void Interact()
     {
-        if (Player.Instance.HasKey())
+        if (Player.Instance.HasKey)
         {
             this.IsOpen = true;
         }

@@ -12,7 +12,7 @@ public sealed class Player : GameObject {
         get { return _hasKey; }
         set
         {
-            _hasKey = true;
+            _hasKey = value;
         }
     }
 
