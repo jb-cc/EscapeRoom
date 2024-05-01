@@ -1,7 +1,5 @@
 **/bin/
 **/obj/
-libs/libs.csproj
-game/game.csproj
 game/obj/game.csproj.nuget.dgspec.json
 game/obj/game.csproj.nuget.g.props
 game/obj/project.assets.json
