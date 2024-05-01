@@ -27,19 +27,6 @@ public class Collision
         Map map = engine.GetMap();
         GameObject firstObj = map.Get(nextY, nextX);
         
-        /* DEBUG SHIT
-        char lolchar = map.GetChar(y, x);
-        Console.WriteLine("char: ");
-        Console.WriteLine(lolchar);
-        
-        Console.WriteLine(obj.ToString());
-        Console.WriteLine("X: ");
-        Console.WriteLine(x.ToString());
-        Console.WriteLine("Y: ");
-        Console.WriteLine(y.ToString());
-        
-        */
-        
         
         if ((int)firstObj.Type == 1) // if next object is obstacle, Player cant move
         {
