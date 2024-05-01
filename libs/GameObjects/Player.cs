@@ -4,6 +4,19 @@ public sealed class Player : GameObject {
 
     private static Player? _instance;
     private Collision collision;
+    
+    private bool _hasKey;
+
+    public bool HasKey
+    {
+        get { return _hasKey; }
+        set
+        {
+            _hasKey = true;
+        }
+    }
+
+    
     public static Player Instance {
         get{
             if(_instance == null)

@@ -1,4 +1,4 @@
-namespace libs;
+﻿namespace libs;
 
 public class Goal : GameObject {
 
