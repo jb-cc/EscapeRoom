@@ -19,5 +19,9 @@ public class Button
             Console.WriteLine("Click! There was a wooden sound in the distance");
             return;
         }
+        else
+        {
+            Console.WriteLine("Nothing happens...")
+        }
     }
 }

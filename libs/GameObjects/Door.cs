@@ -9,8 +9,8 @@ public class Door: GameObject
         CharRepresentation = '#';
         Color = ConsoleColor.DarkGreen;
     }
-    
-    private bool _isOpen;
+
+    private bool _isOpen = false;
 
     public bool IsOpen
     {

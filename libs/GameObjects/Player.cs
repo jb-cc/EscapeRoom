@@ -4,8 +4,8 @@ public sealed class Player : GameObject {
 
     private static Player? _instance;
     private Collision collision;
-    
-    private bool _hasKey;
+
+    private bool _hasKey = false;
 
     public bool HasKey
     {
