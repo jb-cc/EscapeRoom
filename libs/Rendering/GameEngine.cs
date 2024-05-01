@@ -49,6 +49,8 @@ public sealed class GameEngine
 
         private Stack<(int, int)> playerHistory;
 
+        private int timeLeft;
+
         public void SaveCurrentState()
         {
             List<GameObject> gameObjectsCopy = new List<GameObject>();
@@ -183,6 +185,7 @@ public sealed class GameEngine
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine("You have" + timeLeft + "Seconds left!");
         }
 
         
@@ -254,5 +257,9 @@ public sealed class GameEngine
         }
 
         return true; // Return true if all goals are covered
+    }
+
+    public void SetTimeLeft(int time) {
+        timeLeft = time;
     }
 }
