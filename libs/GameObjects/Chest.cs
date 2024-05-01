@@ -1,6 +1,6 @@
 ﻿namespace libs;
 
-public class Chest
+public class Chest : GameObject
 {
     public Chest() : base() {
         Type = GameObjectType.Chest;
@@ -22,7 +22,7 @@ public class Chest
     {
         if (Chest.IsOpen)
         {
-            Player.HasKey = true;
+            Player.Instance.HasKey = true;
             Console.WriteLine("You found a key!");
             return;
         } else {

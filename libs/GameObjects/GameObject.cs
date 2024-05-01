@@ -92,7 +92,7 @@ public class GameObject : IGameObject, IMovement, ICloneable
     }
 
     // virtual class so i dont have to implement it (e.g in walls)
-    public virtual Interact()
+    public virtual void Interact()
     {
         // do nothing by default
     }

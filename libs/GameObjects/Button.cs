@@ -1,6 +1,6 @@
 ﻿namespace libs;
 
-public class Button
+public class Button : GameObject
 {
     
     public Button()
@@ -21,7 +21,7 @@ public class Button
         }
         else
         {
-            Console.WriteLine("Nothing happens...")
+            Console.WriteLine("Nothing happens...");
         }
     }
 }
