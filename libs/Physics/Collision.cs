@@ -28,14 +28,14 @@ public class Collision
         GameObject firstObj = map.Get(nextY, nextX);
         
         
-        if ((int)firstObj.Type == 1 || (int)firstObj.Type == 6) // if next object is obstacle, Player cant move
+        if ((int)firstObj.Type == 1 || (int)firstObj.Type == 6 || (int)firstObj.Type == 4 || (int)firstObj.Type == 5) // if next object is obstacle, Player cant move
         {
             return false;
         } else if
             ((int)firstObj.Type == 2) // if next object is box, check for next object is obstacle or box. else move the first object
         {
             GameObject secondObj = map.Get(nextY + dy, nextX + dx);
-            if ((int)secondObj.Type == 1 || (int)secondObj.Type == 2 || (int)secondObj.Type == 6)
+            if ((int)secondObj.Type == 1 || (int)secondObj.Type == 2 || (int)secondObj.Type == 6 || (int)secondObj.Type == 4 || (int)secondObj.Type == 5)
             {
                 return false;
             }
