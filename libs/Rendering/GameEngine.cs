@@ -200,9 +200,21 @@ public sealed class GameEngine
         {
             if (!gameObjects.Any(p => p.Type == GameObjectType.Player && gameObject.Type == GameObjectType.Player))
             {
+                if (gameObject.Type == GameObjectType.Button)
+                {
+                    foreach (var obj in gameObjects)
+                    {
+                        // Use pattern matching to check and cast
+                        if ((obj is Chest chest) && (gameObject is Button button) && chest.ChestID == button.ChestID)
+                        {
+                            button.ConnectedChest = chest;
+                        }
+                    }
+                }
                 gameObjects.Add(gameObject);
             }
         }
+
 
         private void PlaceGameObjects()
         {
@@ -229,34 +241,8 @@ public sealed class GameEngine
 
 
     public bool CheckWinCondition() {
-        List<GameObject> goals = new List<GameObject>();
-        List<GameObject> boxes = new List<GameObject>();
-
-
-        foreach (GameObject gameObject in gameObjects) {
-            if (gameObject.Type == GameObjectType.Goal) {
-                goals.Add(gameObject);
-            }
-            else if (gameObject.Type == GameObjectType.Box) {
-                boxes.Add(gameObject);
-            }
-        }
-
-        // Check if each goal is covered by at least one box
-        foreach (GameObject goal in goals) {
-            bool goalIsCovered = false;
-            foreach (GameObject box in boxes) {
-                if (goal.PosX == box.PosX && goal.PosY == box.PosY) {
-                    goalIsCovered = true;
-                    break; // Stop checking other boxes once a covering box is found
-                }
-            }
-            if (!goalIsCovered) {
-                return false; // Return false as soon as an uncovered goal is found
-            }
-        }
-
-        return true; // Return true if all goals are covered
+        
+        return false; // Return true if all goals are covered
     }
 
     public void SetTimeLeft(int time) {

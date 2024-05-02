@@ -8,6 +8,16 @@ public class Chest : GameObject
         Color = ConsoleColor.DarkYellow;
     }
     private bool _isOpen = false;
+    private int _chestID = 0;
+    
+    public int ChestID
+    {
+        get { return _chestID; }
+        set
+        {
+            _chestID = value;
+        }
+    }
     
     public bool IsOpen
     {
