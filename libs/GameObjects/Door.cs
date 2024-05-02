@@ -8,9 +8,13 @@ public class Door: GameObject
         Type = GameObjectType.Door;
         CharRepresentation = '#';
         Color = ConsoleColor.DarkGreen;
+        engine = GameEngine.Instance;
+
     }
 
     private bool _isOpen = false;
+    private GameEngine engine;
+
 
     public bool IsOpen
     {
@@ -26,10 +30,11 @@ public class Door: GameObject
         if (Player.Instance.HasKey)
         {
             this.IsOpen = true;
+            engine.SetTextBoxText("Click! You opened the door");
         }
         else
         {
-            Console.WriteLine("You need a key to open this door");
+            engine.SetTextBoxText("You need a key to open this door");
         }
     }
 }

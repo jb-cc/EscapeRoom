@@ -44,7 +44,6 @@ public class Collision
             {
                 firstObj.Move(dx, dy);
                 return true;
-                
             }
 
         } else

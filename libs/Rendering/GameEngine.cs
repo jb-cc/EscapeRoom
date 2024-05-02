@@ -50,6 +50,7 @@ public sealed class GameEngine
         private Stack<(int, int)> playerHistory;
 
         private int timeLeft;
+        private string textBoxText = "";
 
         public void SaveCurrentState()
         {
@@ -63,7 +64,7 @@ public sealed class GameEngine
             }
             foreach (GameObject gameObject in gameObjects)
             {
-                Console.WriteLine(gameObject.Type + " " + gameObject.PosX + " " + gameObject.PosY + " " + gameObject.CharRepresentation + " " + gameObject.Color);
+               // Console.WriteLine(gameObject.Type + " " + gameObject.PosX + " " + gameObject.PosY + " " + gameObject.CharRepresentation + " " + gameObject.Color);
             }
             stateHistory.Push(gameObjectsCopy);
             playerHistory.Push((_focusedObject.PosX, _focusedObject.PosY));
@@ -185,7 +186,8 @@ public sealed class GameEngine
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine("You have " + timeLeft + " Seconds left!");
+            Console.WriteLine("=========================\nYou have " + timeLeft + " Seconds left!\n=========================");
+            Console.WriteLine(textBoxText + "\n=========================");
         }
 
         
@@ -241,11 +243,18 @@ public sealed class GameEngine
 
 
     public bool CheckWinCondition() {
-        
-        return false; // Return true if all goals are covered
+        foreach (GameObject obj in gameObjects) {
+            if (obj is Door door && !door.IsOpen) {
+                return false; // Return false if there is a closed door
+            }
+        }
+        return true; // Door is open, return true, game won yeeeeeee
     }
 
     public void SetTimeLeft(int time) {
         timeLeft = time;
+    }
+    public void SetTextBoxText(string text) {
+        textBoxText = text;
     }
 }

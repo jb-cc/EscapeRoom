@@ -6,9 +6,13 @@ public class Chest : GameObject
         Type = GameObjectType.Chest;
         CharRepresentation = '\u2612';
         Color = ConsoleColor.DarkYellow;
+        engine = GameEngine.Instance;
+
     }
     private bool _isOpen = false;
     private int _chestID = 0;
+    private GameEngine engine;
+
     
     public int ChestID
     {
@@ -33,10 +37,10 @@ public class Chest : GameObject
         if (IsOpen)
         {
             Player.Instance.HasKey = true;
-            Console.WriteLine("You found a key!");
+            engine.SetTextBoxText("You found a key!");
             return;
         } else {
-            Console.WriteLine("Hmpf... seems to be stuck...");
+            engine.SetTextBoxText("Hmpf... seems to be stuck...");
         }
     }
 }

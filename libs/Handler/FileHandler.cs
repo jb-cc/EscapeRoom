@@ -12,7 +12,7 @@ public static class FileHandler
     private static string filePath;
     private static string defaultPath;
     private static int currLevel = 0;
-    private static int maxLevel = 4;
+    private static int maxLevel = 0;
     private readonly static string envVar = "GAME_SETUP_PATH";
     
 

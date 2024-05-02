@@ -8,11 +8,13 @@ public class Button : GameObject
         this.Type = GameObjectType.Button;
         this.CharRepresentation = '⌻';
         this.Color = ConsoleColor.DarkGreen;
+        engine = GameEngine.Instance;
+
     }
 
-    private GameObject _connectedChest = null;
+    private Chest _connectedChest = null;
     
-    public GameObject ConnectedChest
+    public Chest ConnectedChest
     {
         get { return _connectedChest; }
         set
@@ -22,6 +24,8 @@ public class Button : GameObject
     }
 
     private int _chestID = 0;
+    private GameEngine engine;
+
     
     public int ChestID
     {
@@ -33,17 +37,17 @@ public class Button : GameObject
     }
     
     
-    public void InteractChest(Chest chest)
+    public override void Interact()
     {
-        if (!chest.IsOpen)
+        if (!ConnectedChest.IsOpen)
         {
-            chest.IsOpen = true;
-            Console.WriteLine("Click! There was a wooden sound in the distance");
+            ConnectedChest.IsOpen = true;
+            engine.SetTextBoxText("Click! There was a wooden sound in the distance");
             return;
         }
         else
         {
-            Console.WriteLine("Nothing happens...");
+            engine.SetTextBoxText("Nothing happens...");
         }
     }
 }

@@ -30,19 +30,19 @@ public sealed class InputHandler{
         // Handle keyboard input to move the player and save the state before the move
         switch (keyInfo.Key)
         {
-            case ConsoleKey.UpArrow:
+            case ConsoleKey.E:
+                engine.SaveCurrentState();
+                focusedObject.Interact();
+                break;
+            case ConsoleKey.W:
                 engine.SaveCurrentState();
                 focusedObject.Move(0, -1);
                 break;
-            case ConsoleKey.DownArrow:
-                engine.SaveCurrentState();
-                focusedObject.Move(0, 1);
-                break;
-            case ConsoleKey.LeftArrow:
+            case ConsoleKey.A:
                 engine.SaveCurrentState();
                 focusedObject.Move(-1, 0);
                 break;
-            case ConsoleKey.RightArrow:
+            case ConsoleKey.D:
                 engine.SaveCurrentState();
                 focusedObject.Move(1, 0);
                 break;
@@ -56,6 +56,11 @@ public sealed class InputHandler{
             if (keyInfo.Modifiers == ConsoleModifiers.Control) {
                 Console.WriteLine("Saving States...");
                 engine.SaveProgress();
+            }
+            else
+            {
+                engine.SaveCurrentState();
+                focusedObject.Move(0, 1);
             }
             break;
             default:
